@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Animal from "./Animal/Animal";
+import UserManager from "./UserManager/UserManager"
 import "./App.css";
 
 class App extends Component {
@@ -27,8 +28,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/*
         <h1> Cat´s App </h1> <div>{this.animalList()}</div>
         <button onClick={this.changeAgeHandler}>change age!</button>
+        */}
+        <UserManager></UserManager>
       </div>
     );
   }
