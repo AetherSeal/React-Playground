@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Animal from "./Animal/Animal";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    animals: [
+      { name: "bob", age: "2" },
+      { name: "tom", age: "45" },
+      { name: "felix", age: "999" }
+    ]
+  };
+
+  animalList = () => {
+    const list = this.state.animals.map(animal => {
+      return <Animal name={animal.name} age={animal.age} />;
+    });
+    return list;
+  };
+
+  changeAgeHandler = e => {
+    this.setState({
+      animals: [...this.state.animals, { name: "pepe", age: "70" }]
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1> Cat´s App </h1> <div>{this.animalList()}</div>
+        <button onClick={this.changeAgeHandler}>change age!</button>
       </div>
     );
   }
