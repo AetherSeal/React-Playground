@@ -1,0 +1,15 @@
+.animal {
+    margin: 30px 50px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+.animal-wrapper{
+    position: relative;
+}
+.delete-animal {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}

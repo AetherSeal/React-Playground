@@ -1,13 +1,17 @@
-import React  from 'react'
-
-//example of a simple react component 
-const animal = (props)=>{
-    
-    return(
+import React from "react";
+import "./Animal.css";
+//example of a simple react component
+const animal = props => {
+  return (
+    <div className="animal">
+      <div className="animal-wrapper">
         <div>
-            <div>i am {props.name} and i have {props.age}</div> 
-            <div>{props.children}</div> 
+          i am {props.name} and i have {props.age}
         </div>
-    )
-}
-export default animal
+        <div>{props.children}</div>
+        <span className="delete-animal" onClick={props.delete}>X</span>
+      </div>
+    </div>
+  );
+};
+export default animal;

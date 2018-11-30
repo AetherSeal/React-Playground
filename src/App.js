@@ -1,38 +1,76 @@
 import React, { Component } from "react";
-import Animal from "./Animal/Animal";
-import UserManager from "./UserManager/UserManager"
+import AnimalManager from "./AnimalManager/AnimalManager";
+import UserManager from "./UserManager/UserManager";
 import "./App.css";
 
 class App extends Component {
   state = {
-    animals: [
-      { name: "bob", age: "2" },
-      { name: "tom", age: "45" },
-      { name: "felix", age: "999" }
-    ]
+    display: null
   };
 
-  animalList = () => {
-    const list = this.state.animals.map(animal => {
-      return <Animal name={animal.name} age={animal.age} />;
-    });
-    return list;
-  };
 
-  changeAgeHandler = e => {
+  catAppHandler = () => {
     this.setState({
-      animals: [...this.state.animals, { name: "pepe", age: "70" }]
+      display: <AnimalManager/>
     });
+  };
+
+  userAppHandler = () => {
+    this.setState({
+      display: <UserManager />
+    });
+  };
+
+  appHandler = e => {
+    switch (e.target.id) {
+      case "cat":
+        this.catAppHandler();
+        break;
+
+      case "user":
+        this.userAppHandler();
+        break;
+
+      case "debugger":
+        debugger
+        break;
+
+      default:
+        break;
+    }
   };
 
   render() {
     return (
       <div className="App">
-        {/*
-        <h1> Cat´s App </h1> <div>{this.animalList()}</div>
-        <button onClick={this.changeAgeHandler}>change age!</button>
-        */}
-        <UserManager></UserManager>
+        <h1> Playground App</h1>
+        <div
+          id="appmenu"
+          className={this.state.display == null ? "show" : "dont-show"}
+        >
+          <button
+            id="cat"
+            onClick={this.appHandler}
+            className="button-dashboard"
+          >
+            Cats app
+          </button>
+          <button
+            id="user"
+            onClick={this.appHandler}
+            className="button-dashboard"
+          >
+            User app
+          </button>
+          <button
+            id="debugger"
+            onClick={this.appHandler}
+            className="button-dashboard"
+          >
+            debugger app
+          </button>
+        </div>
+        {this.state.display}
       </div>
     );
   }

@@ -1,3 +1,23 @@
 .App {
   text-align: center;
 }
+
+.button-dashboard {
+  width: 200px;
+  height: 100px;
+  background-color: #FF5722;
+  border: solid 1px #FF5722;
+  border-radius: 5px;
+  margin: 20px 20px 0px 0px;
+  color: white;
+  box-shadow: 4px 4px 10px grey;
+  text-transform: capitalize
+}
+
+.show {
+  display: inline-block
+}
+
+.dont-show {
+  display: none
+}

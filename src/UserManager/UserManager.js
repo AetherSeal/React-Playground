@@ -4,7 +4,7 @@ import UsrOutput from "../UserOutput/UserOutput";
 
 export default class UserManager extends React.Component {
     state={
-        username: "user1"
+        username: "default user name"
     }
     userNameHandler = (e)=>{
         this.setState({
