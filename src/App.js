@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AnimalManager from "./AnimalManager/AnimalManager";
 import UserManager from "./UserManager/UserManager";
+import DynamicManager from "./DynamicData/DynamicData";
 import "./App.css";
 
 class App extends Component {
@@ -8,16 +9,21 @@ class App extends Component {
     display: null
   };
 
-
   catAppHandler = () => {
     this.setState({
-      display: <AnimalManager/>
+      display: <AnimalManager />
     });
   };
 
   userAppHandler = () => {
     this.setState({
       display: <UserManager />
+    });
+  };
+
+  dynamicAppHandler = () => {
+    this.setState({
+      display: <DynamicManager />
     });
   };
 
@@ -31,8 +37,12 @@ class App extends Component {
         this.userAppHandler();
         break;
 
+      case "dynamic":
+        this.dynamicAppHandler();
+        break;
+
       case "debugger":
-        debugger
+        debugger;
         break;
 
       default:
@@ -61,6 +71,13 @@ class App extends Component {
             className="button-dashboard"
           >
             User app
+          </button>
+          <button
+            id="dynamic"
+            onClick={this.appHandler}
+            className="button-dashboard"
+          >
+            Dynamic? app
           </button>
           <button
             id="debugger"
