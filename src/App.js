@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AnimalManager from "./AnimalManager/AnimalManager";
 import UserManager from "./UserManager/UserManager";
-import DynamicManager from "./DynamicData/DynamicData";
+import TwitterManager from "./Twitter/Twitter";
 import "./App.css";
 
 class App extends Component {
@@ -21,9 +21,9 @@ class App extends Component {
     });
   };
 
-  dynamicAppHandler = () => {
+  twitterAppHandler = () => {
     this.setState({
-      display: <DynamicManager />
+      display: <TwitterManager />
     });
   };
 
@@ -37,8 +37,8 @@ class App extends Component {
         this.userAppHandler();
         break;
 
-      case "dynamic":
-        this.dynamicAppHandler();
+      case "twitter":
+        this.twitterAppHandler();
         break;
 
       case "debugger":
@@ -73,11 +73,11 @@ class App extends Component {
             User app
           </button>
           <button
-            id="dynamic"
+            id="twitter"
             onClick={this.appHandler}
             className="button-dashboard"
           >
-            Dynamic? app
+            Twitter app
           </button>
           <button
             id="debugger"

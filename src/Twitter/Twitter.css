@@ -1,0 +1,33 @@
+.twitter-thread {
+    border: solid skyblue 2px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+
+}
+
+.twitter-thread-container {
+    width: 50%;
+    margin: auto;
+}
+
+.twitter-avatar {
+    width: 25px;
+    height: 25px;
+}
+
+.twitter-container {
+    background-color: skyblue;
+    padding: 20px 0px 20px 0px;
+    border-radius: 5px;
+    min-height: 100vh;
+}
+
+.twitter-wrapper {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    min-height: 80vh;
+}
