@@ -5,9 +5,9 @@ import Alert from "./TwitterAlert";
 
 export default class DynamicData extends React.Component {
   state = {
-    twittSize: 100,
-    twittMsg: "",
-    twittAlert: "",
+    tweetSize: 100,
+    tweetMsg: "",
+    tweetAlert: "",
     twitterThread: [
       {
         author: {
@@ -30,28 +30,28 @@ export default class DynamicData extends React.Component {
     ]
   };
 
-  twitMsgHandler = e => {
+  tweetMsgHandler = e => {
     const newSize = 100 - e.target.value.length;
     if (newSize <= 0) {
       this.setState({
-        twittAlert: "El mensaje es muy largo",
-        twittMsg: e.target.value,
-        twittSize: newSize
+        tweetAlert: "El mensaje es muy largo",
+        tweetMsg: e.target.value,
+        tweetSize: newSize
       });
     } else {
       this.setState({
-        twittSize: newSize,
-        twittAlert: "",
-        twittMsg: e.target.value
+        tweetSize: newSize,
+        tweetAlert: "",
+        tweetMsg: e.target.value
       });
     }
   };
-  otherTwitts = e => {
+  otherTweets = e => {
     const listOfTwetts = this.state.twitterThread.map((m, index) => {
       return (
         <div
           className="twitter-thread"
-          onClick={() => this.deleteTwittHandler(index)}
+          onClick={() => this.deleteTweetHandler(index)}
           key={index}
         >
           <h3>
@@ -64,7 +64,7 @@ export default class DynamicData extends React.Component {
     });
     return listOfTwetts;
   };
-  deleteTwittHandler = e => {
+  deleteTweetHandler = e => {
     const listOfTwits = this.state.twitterThread.filter((t, index) => {
       if (index !== e) {
         return t;
@@ -100,9 +100,9 @@ export default class DynamicData extends React.Component {
       <div className="twitter-container ">
         <div className="twitter-wrapper">
           <h1>Old Twitter</h1>
-          <h3>{this.state.twittAlert}</h3>
-          <h4> Remaing chars:{this.state.twittSize}</h4>
-          <Alert twittLength={this.state.twittMsg.length} />
+          <h3>{this.state.tweetAlert}</h3>
+          <h4> Remaing chars:{this.state.tweetSize}</h4>
+          <Alert tweetLength={this.state.tweetMsg.length} />
           <form onSubmit={this.postHandler}>
             <textarea
               name=""
@@ -110,8 +110,8 @@ export default class DynamicData extends React.Component {
               cols="30"
               rows="10"
               className="twitter-textbox"
-              value={this.state.twittMsg}
-              onChange={this.twitMsgHandler}
+              value={this.state.tweetMsg}
+              onChange={this.tweetMsgHandler}
             />
             <button className="twitter-button" type="submit" value="Submit">
               Post
@@ -119,8 +119,8 @@ export default class DynamicData extends React.Component {
           </form>
 
           <hr />
-          <h3>other twitts</h3>
-          <div className="twitter-thread-container">{this.otherTwitts()}</div>
+          <h3>Other Tweets</h3>
+          <div className="twitter-thread-container">{this.otherTweets()}</div>
         </div>
       </div>
     );
