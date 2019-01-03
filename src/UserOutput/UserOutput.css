@@ -1,14 +1,14 @@
-.user-output {
-    padding: 10px 30px 10px 30px;
-    border: #de1111 solid 1px;
+.output {
+    background-color: green;
+    color: white;
+    width: 300px;
+    margin: 3px;
+    padding: 1em;
     border-radius: 5px;
-    margin: 0px 50px 20px 50px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px #00000030;
 }
 
-.user-output h1 {
-    text-transform: capitalize
-}
-
-.user-output .username {
-    color: #ff511b
+.title{
+    color:gray
 }

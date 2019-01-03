@@ -21,3 +21,25 @@
 .dontShow {
   display: none
 }
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 80%;
+  flex-flow: wrap;
+  align-content: space-around;
+}
+.flexContent{
+
+  background-color: #FF5722;
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row; */
+  margin: auto;
+  /* width: 80%; */
+  /* flex-flow: wrap; */
+  justify-content: center;
+  align-content: flex-start;
+  border-radius: 5px;
+}

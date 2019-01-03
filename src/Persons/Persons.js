@@ -10,9 +10,10 @@ const Persons = props => {
         name={person.name}
         age={person.age}
         key={person.id}
+        classes={props.parentClass.flexContent}
       />
     );
   });
-  return listOfPersons;
+  return <div className={props.parentClass.flexContainer}>{listOfPersons}</div>;
 };
 export default Persons;

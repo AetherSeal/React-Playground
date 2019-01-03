@@ -1,11 +1,11 @@
 import React from "react";
 
-const Person = prop => {
-  let text = prop.name;
+const Person = props => {
+  let text = props.name;
 
   return (
-    <div>
-      <div onClick={prop.click} /> i am {text} and i have {prop.age}{" "}
+    <div className={props.classes}>
+      <div onClick={props.click} /> i am {text} and i have {props.age}{" "}
       <div>
         name:{" "}
         <input
@@ -13,7 +13,7 @@ const Person = prop => {
           name=""
           id=""
           value={text}
-          onChange={prop.change}
+          onChange={props.change}
         />{" "}
       </div>{" "}
     </div>

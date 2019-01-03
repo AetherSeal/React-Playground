@@ -79,7 +79,6 @@ export default class DynamicData extends React.Component {
 
   postHandler = e => {
     e.preventDefault();
-    debugger;
     const t = e.target.myTwit.value;
     this.setState({
       twitterThread: [

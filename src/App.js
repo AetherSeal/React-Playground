@@ -5,7 +5,7 @@ import UserManager from "./UserManager/UserManager";
 import TwitterManager from "./Twitter/Twitter";
 import PersonsManager from "./Persons/Persons";
 import Menu from "./Menu/Menu";
-import Classes from "./App.css";
+import classes from "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -51,10 +51,8 @@ class App extends Component {
     console.log('setstate 1')
     //get newvalue
     const name = event.target.value;
-    debugger;
 
     this.setState((prevState, props) => {
-      debugger;
       //get index
       const personIndex = prevState.persons.findIndex(p => {
         return id === p.id;
@@ -102,6 +100,7 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this._deletePersonHandler}
           changed={this._nameChangedHandler}
+          parentClass = {classes}
         />
       )
     });
@@ -139,18 +138,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className={Classes.App}>
+      <div className={classes.App}>
         <h1> Playground App </h1>{" "}
         <div
           id="appmenu"
           className={
-            this.state.display == null ? Classes.show : Classes.dontShow
+            this.state.display == null ? classes.show : classes.dontShow
           }
         >
           <Menu
+          parentClasses={classes}
             apps={this.state.apps}
             clicked={this._appHandler}
-            customClass={Classes.buttonDashboard}
+            customClass={classes.buttonDashboard}
           />
         </div>
         {this.state.display}

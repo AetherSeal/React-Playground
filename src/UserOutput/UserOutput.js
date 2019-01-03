@@ -1,9 +1,9 @@
 import React from "react";
-import './UserOutput.css'
+import classes from './UserOutput.css'
 const userInput = props => {
   return (
-    <div className="user-output">
-      <h1>user output <span className="username">{props.username?props.username:'no user'}</span></h1>
+    <div className={classes.output}>
+      <h1>user output <span className={classes.title}>{props.username?props.username:'no user'}</span></h1>
       <p>
         Bacon ipsum dolor amet tenderloin drumstick short loin cupim, jowl ham
         hock filet mignon t-bone meatball. Sirloin picanha pork chop hamburger
