@@ -1,4 +1,4 @@
-.twitter-thread {
+.twitterThread {
   border: solid skyblue 2px;
   border-radius: 5px;
   padding: 20px;
@@ -6,32 +6,34 @@
   text-align: left;
 }
 
-.twitter-thread-container {
+.twitterThreadContainer {
   width: 50%;
   margin: auto;
+  margin-bottom: 50px
 }
 
-.twitter-avatar {
+.twitterAvatar {
   width: 25px;
   height: 25px;
 }
 
-.twitter-container {
+.twitterContainer {
   background-color: skyblue;
   padding: 20px 0px 20px 0px;
   border-radius: 5px;
   min-height: 100vh;
 }
 
-.twitter-wrapper {
+.twitterWrapper {
   background-color: white;
   width: 80%;
   margin: auto;
   border-radius: 5px;
   min-height: 80vh;
+  padding-bottom: 50px;
 }
 
-.twitter-button {
+.twitterButton {
   padding: 10px 0px 10px 0px;
   width: 50vw;
   border-radius: 5px;
@@ -43,11 +45,17 @@
   box-shadow: 3px 3px 6px 0px #00000030;
   margin-top: 20px
 }
-.twitter-textbox {
+.twitterTextbox {
   display: block;
   margin: auto;
   width: 50vw;
   border-radius: 5px;
   border: skyblue solid;
-  box-sizing: border-box;
+  box-sizing: borderBox;
+}
+
+h3{
+  
+  margin-top: 50px;
+
 }

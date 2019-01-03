@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.button-dashboard {
+.buttonDashboard {
   width: 200px;
   height: 100px;
   background-color: #FF5722;
@@ -18,6 +18,6 @@
   display: inline-block
 }
 
-.dont-show {
+.dontShow {
   display: none
 }

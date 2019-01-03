@@ -1,44 +1,131 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import AnimalManager from "./AnimalManager/AnimalManager";
 import UserManager from "./UserManager/UserManager";
 import TwitterManager from "./Twitter/Twitter";
-import "./App.css";
+import PersonsManager from "./Persons/Persons";
+import Menu from "./Menu/Menu";
+import Classes from "./App.css";
 
 class App extends Component {
-  state = {
-    display: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: "",
+      display: null,
+      apps: ["animal", "user", "twitter", "persons", "debugger"],
+      persons: [
+        {
+          name: "fulano",
+          age: "23",
+          id: 0
+        },
+        {
+          name: "mengano",
+          age: "21",
+          id: 2
+        },
+        {
+          name: "sutanoo",
+          age: "22",
+          id: 1
+        }
+      ]
+    };
+    console.log("app.js constructor");
+  }
+
+  _deletePersonHandler = id => {
+    const newListOfPersons = this.state.persons.filter(p => {
+      if ((p.id = id)) {
+        return null;
+      }
+      return p;
+    });
+    this.setState({
+      persons: newListOfPersons
+    });
   };
 
-  catAppHandler = () => {
+  _nameChangedHandler = (event, id) => {
+    console.log('setstate 1')
+    //get newvalue
+    const name = event.target.value;
+    debugger;
+
+    this.setState((prevState, props) => {
+      debugger;
+      //get index
+      const personIndex = prevState.persons.findIndex(p => {
+        return id === p.id;
+      });
+
+      //get person
+      const personToUpdate = prevState.persons[personIndex];
+      personToUpdate.name = name;
+
+      //update the list
+      const updatedListOfpersons = [...prevState.persons];
+      updatedListOfpersons[personIndex] = personToUpdate;
+
+      return {
+        persons: updatedListOfpersons
+      };
+    });
+    this._personsAppHandler()
+  };
+
+  _animalAppHandler = () => {
     this.setState({
       display: <AnimalManager />
     });
   };
 
-  userAppHandler = () => {
+  _userAppHandler = () => {
     this.setState({
       display: <UserManager />
     });
   };
 
-  twitterAppHandler = () => {
+  _twitterAppHandler = () => {
     this.setState({
       display: <TwitterManager />
     });
   };
 
-  appHandler = e => {
+  _personsAppHandler = () => {
+    console.log('setstate 2')
+    this.setState({
+      ...this.props,
+      display: (
+        <PersonsManager
+          persons={this.state.persons}
+          clicked={this._deletePersonHandler}
+          changed={this._nameChangedHandler}
+        />
+      )
+    });
+    this.setState({
+
+    })
+  };
+
+  _appHandler = e => {
     switch (e.target.id) {
-      case "cat":
-        this.catAppHandler();
+      case "animal":
+        this._animalAppHandler();
         break;
 
       case "user":
-        this.userAppHandler();
+        this._userAppHandler();
         break;
 
       case "twitter":
-        this.twitterAppHandler();
+        this._twitterAppHandler();
+        break;
+
+      case "persons":
+        this._personsAppHandler();
         break;
 
       case "debugger":
@@ -52,40 +139,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1> Playground App</h1>
+      <div className={Classes.App}>
+        <h1> Playground App </h1>{" "}
         <div
           id="appmenu"
-          className={this.state.display == null ? "show" : "dont-show"}
+          className={
+            this.state.display == null ? Classes.show : Classes.dontShow
+          }
         >
-          <button
-            id="cat"
-            onClick={this.appHandler}
-            className="button-dashboard"
-          >
-            Cats app
-          </button>
-          <button
-            id="user"
-            onClick={this.appHandler}
-            className="button-dashboard"
-          >
-            User app
-          </button>
-          <button
-            id="twitter"
-            onClick={this.appHandler}
-            className="button-dashboard"
-          >
-            Twitter app
-          </button>
-          <button
-            id="debugger"
-            onClick={this.appHandler}
-            className="button-dashboard"
-          >
-            debugger app
-          </button>
+          <Menu
+            apps={this.state.apps}
+            clicked={this._appHandler}
+            customClass={Classes.buttonDashboard}
+          />
         </div>
         {this.state.display}
       </div>

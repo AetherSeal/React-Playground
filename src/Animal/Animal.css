@@ -1,15 +1,28 @@
 .animal {
-    margin: 30px 50px;
-    background-color: green;
+    width: 50%;
+    margin: auto;
+    margin-top: 1em;
+}
+.wrapper{
+    background: red;
     color: white;
-    padding: 10px;
-    border-radius: 4px;
-}
-.animal-wrapper{
+    padding: 15px 5px;
     position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
 }
-.delete-animal {
+.delete{
     position: absolute;
-    right: 0px;
+    right: 5px;
     top: 0px;
+}
+
+span{
+    font-weight: bold   
+}
+
+label{
+    color:red
 }

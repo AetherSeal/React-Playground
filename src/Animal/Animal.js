@@ -1,15 +1,19 @@
 import React from "react";
-import "./Animal.css";
+import classes from "./Animal.css";
 //example of a simple react component
 const animal = props => {
   return (
-    <div className="animal">
-      <div className="animal-wrapper">
+    <div className={classes.animal}>
+      <div className={classes.wrapper}>
         <div>
-          i am {props.name} and i have {props.age}
+        <span>Name:</span> {props.name} <span>Age:</span> {props.age}
         </div>
-        <div>{props.children}</div>
-        <span className="delete-animal" onClick={props.delete}>X</span>
+        <div>
+          <span>Color:</span> {props.color} <span>Specie:</span> {props.specie}
+        </div>
+        <span className={classes.delete} onClick={props.delete}>
+          X
+        </span>
       </div>
     </div>
   );

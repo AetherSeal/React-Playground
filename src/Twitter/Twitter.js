@@ -1,7 +1,8 @@
 import React from "react";
-import "./Twitter.css";
+import Classes from "./Twitter.css";
 
 import Alert from "./TwitterAlert";
+
 
 export default class DynamicData extends React.Component {
   state = {
@@ -50,12 +51,12 @@ export default class DynamicData extends React.Component {
     const listOfTwetts = this.state.twitterThread.map((m, index) => {
       return (
         <div
-          className="twitter-thread"
+          className={Classes.twitterThread}
           onClick={() => this.deleteTweetHandler(index)}
           key={index}
         >
           <h3>
-            <img src={m.author.image} alt="" className="twitter-avatar" />
+            <img src={m.author.image} alt="" className={Classes.twitterAvatar} />
             {m.author.name}
           </h3>
           {m.twitterThreadMessage}
@@ -97,8 +98,8 @@ export default class DynamicData extends React.Component {
 
   render() {
     return (
-      <div className="twitter-container ">
-        <div className="twitter-wrapper">
+      <div  className={Classes.twitterContainer}>
+        <div className={Classes.twitterWrapper}>
           <h1>Old Twitter</h1>
           <h3>{this.state.tweetAlert}</h3>
           <h4> Remaing chars:{this.state.tweetSize}</h4>
@@ -109,18 +110,18 @@ export default class DynamicData extends React.Component {
               id="myTwit"
               cols="30"
               rows="10"
-              className="twitter-textbox"
+              className={Classes.twitterTextbox}
               value={this.state.tweetMsg}
               onChange={this.tweetMsgHandler}
             />
-            <button className="twitter-button" type="submit" value="Submit">
+            <button  className={Classes.twitterButton} type="submit" value="Submit">
               Post
             </button>
           </form>
 
           <hr />
           <h3>Other Tweets</h3>
-          <div className="twitter-thread-container">{this.otherTweets()}</div>
+          <div className={Classes.twitterThreadContainer}>{this.otherTweets()}</div>
         </div>
       </div>
     );

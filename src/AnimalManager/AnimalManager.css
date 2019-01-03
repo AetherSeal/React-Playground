@@ -1,12 +1,38 @@
 .button-form {
-    width: 200px;
-    height: 50px;
-    background-color: #23963b;
-    border: solid 1px #23963b;
-    border-radius: 5px;
-    margin: 20px 20px 0px 0px;
-    color: white;
-    box-shadow: 4px 4px 10px grey;
-    text-transform: capitalize
-  }
-  
+  width: 200px;
+  height: 50px;
+  background-color: #23963b;
+  border: solid 1px #23963b;
+  border-radius: 5px;
+  margin: 20px 20px 0px 0px;
+  color: white;
+  box-shadow: 4px 4px 10px grey;
+  text-transform: capitalize
+}
+
+input[type='text'] {
+  width: 100%
+}
+
+label {
+  float: left
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 50px
+}
+
+.wrapper {
+  width: 50%;
+  margin: auto
+}
+
+.button {
+  background-color: red;
+  border: solid 0px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+  font-size: larger;
+}

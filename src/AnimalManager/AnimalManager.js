@@ -1,34 +1,20 @@
 import React from "react";
 import Animal from "../Animal/Animal";
-import "./AnimalManager.css";
+import classes from "./AnimalManager.css";
 
 export default class AnimalManager extends React.Component {
   state = {
-    animals: [
-      {
-        id: 1,
-        name: "bob",
-        age: "2"
-      },
-      {
-        id: 2,
-        name: "tom",
-        age: "45"
-      },
-      {
-        id: 3,
-        name: "felix",
-        age: "999"
-      }
-    ]
+    animals: []
   };
 
   animalList = () => {
-    const list = this.state.animals.map((animal, index) => {
+    const list = this.state.animals.map((animal) => {
       return (
         <Animal
           name={animal.name}
           age={animal.age}
+          color={animal.color}
+          specie={animal.specie}
           key={animal.id}
           delete={() => this.deleteAnimalHandler(animal.id)}
         />
@@ -39,7 +25,6 @@ export default class AnimalManager extends React.Component {
 
   addAnimalHandler = e => {
     e.preventDefault();
-    debugger
     const id = new Date();
 
     const newAnimal = {
@@ -58,28 +43,34 @@ export default class AnimalManager extends React.Component {
     const newAnimals = this.state.animals.filter(animal => {
       return animal.id !== key ? animal : null;
     });
-    this.setState({
-      animals: newAnimals
+    this.setState(()=>{
+      return {animals: newAnimals}
     });
   };
 
   render() {
     return (
-      <div className="animal-manager" onSubmit={this.addAnimalHandler}>
-        <form action="">
-          <div>
-            name: <input type="text" id="name" />
-          </div>
-          <div>
-            age: <input type="text" id="age" />
-          </div>
-          <div>
-            color: <input type="text" id="color" />
-          </div>
-          <div>
-            specie: <input type="text" id="specie" />
-          </div>
-          <button className="button-form" type="submit">Add Animal</button>
+      <div className={classes.container} onSubmit={this.addAnimalHandler}>
+        <form className={classes.wrapper} action="">
+          <p>
+            <label for="name">Name</label>
+            <input type="text" id="name" />
+          </p>
+          <p>
+            <label for="age">Age</label>
+            <input type="text" id="age" />
+          </p>
+          <p>
+            <label for="color">Color</label>
+            <input type="text" id="color" />
+          </p>
+          <p>
+            <label for="specie">Specie</label>
+            <input type="text" id="specie" />
+          </p>
+          <button className={classes.button} type="submit">
+            Add Animal
+          </button>
         </form>
         <div>{this.animalList()}</div>
       </div>
